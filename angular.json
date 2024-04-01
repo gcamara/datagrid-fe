@@ -20,6 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "preserveSymlinks": true,
             "outputPath": "dist/datagrid-fe",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -76,6 +77,13 @@
             },
             "development": {
               "browserTarget": "datagrid-fe:build:development"
+            }
+          },
+          "options": {
+            "sourceMap": {
+              "scripts": true,
+              "styles": true,
+              "vendor": true
             }
           },
           "defaultConfiguration": "development"
