@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --port 4201",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "server": "npx nodemon ./server/index.js"
   },
   "private": true,
   "dependencies": {
@@ -25,6 +26,7 @@
     "@fortawesome/fontawesome-pro": "^5.15.4",
     "chart.js": "^3.7.1",
     "css-element-queries": "^1.2.1",
+    "fuse.js": "^7.0.0",
     "go-frontend-utility": "^2024.1.26004",
     "gs-angular-controls": "file:../../../gs-angular-controls/dist/gs-angular-controls",
     "hammerjs": "^2.0.8",
@@ -41,6 +43,8 @@
     "rxjs": "^7.5.5",
     "tslib": "^2.3.0",
     "xlsx": "^0.14.3",
+    "xlsx-js-style": "^1.2.0",
+    "xslx": "^1.0.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
@@ -49,12 +53,17 @@
     "@angular/compiler-cli": "~12.2.0",
     "@types/jasmine": "~3.8.0",
     "@types/node": "^12.11.1",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
     "jasmine-core": "~3.8.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "md5": "^2.3.0",
+    "nodemon": "^3.1.0",
+    "sqlite3": "^5.1.7",
     "typescript": "~4.3.5"
   }
 }

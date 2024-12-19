@@ -1,0 +1,211 @@
+[
+    {
+        "payrunId": 1,
+        "payrunName": "Payrun 1",
+        "workPeriod": "01/01/2021 - 01/15/2021",
+        "paymentMethod": "Check",
+        "paymentId": 123456,
+        "achStatus": "Pending",
+        "details": [
+            {
+                "checkDate": "01/15/2021",
+                "type": "Scheduled",
+                "netPay": 1000,
+                "grossPay": 2000,
+                "deductionTotal": 1000,
+                "eeTaxes": 500,
+                "benefitsTotal": 500
+            }
+        ]
+    },
+    {
+        "payrunId": 2,
+        "payrunName": "Payrun 2",
+        "workPeriod": "01/16/2021 - 01/31/2021",
+        "paymentMethod": "Direct Deposit",
+        "paymentId": 123457,
+        "achStatus": "Completed",
+        "details": [
+            {
+                "checkDate": "01/31/2021",
+                "type": "Scheduled",
+                "netPay": 1100,
+                "grossPay": 2100,
+                "deductionTotal": 1000,
+                "eeTaxes": 550,
+                "benefitsTotal": 550
+            }
+        ]
+    },
+    {
+        "payrunId": 3,
+        "payrunName": "Payrun 3",
+        "workPeriod": "02/01/2021 - 02/15/2021",
+        "paymentMethod": "Check",
+        "paymentId": 123458,
+        "achStatus": "Pending",
+        "details": [
+            {
+                "checkDate": "02/15/2021",
+                "type": "Scheduled",
+                "netPay": 1200,
+                "grossPay": 2200,
+                "deductionTotal": 1000,
+                "eeTaxes": 600,
+                "benefitsTotal": 600
+            }
+        ]
+    },
+    {
+        "payrunId": 4,
+        "payrunName": "Payrun 4",
+        "workPeriod": "02/16/2021 - 02/28/2021",
+        "paymentMethod": "Direct Deposit",
+        "paymentId": 123459,
+        "achStatus": "Completed",
+        "details": [
+            {
+                "checkDate": "02/28/2021",
+                "type": "Scheduled",
+                "netPay": 1300,
+                "grossPay": 2300,
+                "deductionTotal": 1000,
+                "eeTaxes": 650,
+                "benefitsTotal": 650
+            }
+        ]
+    },
+    {
+        "payrunId": 5,
+        "payrunName": "Payrun 5",
+        "workPeriod": "03/01/2021 - 03/15/2021",
+        "paymentMethod": "Check",
+        "paymentId": 123460,
+        "achStatus": "Pending",
+        "details": [
+            {
+                "checkDate": "03/15/2021",
+                "type": "Scheduled",
+                "netPay": 1400,
+                "grossPay": 2400,
+                "deductionTotal": 1000,
+                "eeTaxes": 700,
+                "benefitsTotal": 700
+            }
+        ]
+    },
+    {
+        "payrunId": 6,
+        "payrunName": "Payrun 6",
+        "workPeriod": "03/16/2021 - 03/31/2021",
+        "paymentMethod": "Direct Deposit",
+        "paymentId": 123461,
+        "achStatus": "Completed",
+        "details": [
+            {
+                "checkDate": "03/31/2021",
+                "type": "Scheduled",
+                "netPay": 1500,
+                "grossPay": 2500,
+                "deductionTotal": 1000,
+                "eeTaxes": 750,
+                "benefitsTotal": 750
+            }
+        ]
+    },
+    {
+        "payrunId": 7,
+        "payrunName": "Payrun 7",
+        "workPeriod": "04/01/2021 - 04/15/2021",
+        "paymentMethod": "Check",
+        "paymentId": 123462,
+        "achStatus": "Pending",
+        "details": [
+            {
+                "checkDate": "04/15/2021",
+                "type": "Scheduled",
+                "netPay": 1600,
+                "grossPay": 2600,
+                "deductionTotal": 1000,
+                "eeTaxes": 800,
+                "benefitsTotal": 800
+            }
+        ]
+    },
+    {
+        "payrunId": 8,
+        "payrunName": "Payrun 8",
+        "workPeriod": "04/16/2021 - 04/30/2021",
+        "paymentMethod": "Direct Deposit",
+        "paymentId": 123463,
+        "achStatus": "Completed",
+        "details": [
+            {
+                "checkDate": "04/30/2021",
+                "type": "Scheduled",
+                "netPay": 1700,
+                "grossPay": 2700,
+                "deductionTotal": 1000,
+                "eeTaxes": 850,
+                "benefitsTotal": 850
+            }
+        ]
+    },
+    {
+        "payrunId": 9,
+        "payrunName": "Payrun 9",
+        "workPeriod": "05/01/2021 - 05/15/2021",
+        "paymentMethod": "Check",
+        "paymentId": 123464,
+        "achStatus": "Pending",
+        "details": [
+            {
+                "checkDate": "05/15/2021",
+                "type": "Scheduled",
+                "netPay": 1800,
+                "grossPay": 2800,
+                "deductionTotal": 1000,
+                "eeTaxes": 900,
+                "benefitsTotal": 900
+            }
+        ]
+    },
+    {
+        "payrunId": 10,
+        "payrunName": "Payrun 10",
+        "workPeriod": "05/16/2021 - 05/31/2021",
+        "paymentMethod": "Direct Deposit",
+        "paymentId": 123465,
+        "achStatus": "Completed",
+        "details": [
+            {
+                "checkDate": "05/31/2021",
+                "type": "Scheduled",
+                "netPay": 1900,
+                "grossPay": 2900,
+                "deductionTotal": 1000,
+                "eeTaxes": 950,
+                "benefitsTotal": 950
+            }
+        ]
+    },
+    {
+        "payrunId": 11,
+        "payrunName": "Payrun 11",
+        "workPeriod": "06/01/2021 - 06/15/2021",
+        "paymentMethod": "Check",
+        "paymentId": 123466,
+        "achStatus": "Pending",
+        "details": [
+            {
+                "checkDate": "06/15/2021",
+                "type": "Scheduled",
+                "netPay": 2000,
+                "grossPay": 3000,
+                "deductionTotal": 1000,
+                "eeTaxes": 1000,
+                "benefitsTotal": 1000
+            }
+        ]
+    }
+]

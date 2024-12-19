@@ -1,0 +1,30 @@
+[
+    {
+        "payrunId": 1,
+        "payrunName": "Payrun 1",
+        "workPeriod": "01/01/2021 - 01/15/2021",
+        "paymentMethod": "Check",
+        "paymentId": 123456,
+        "achStatus": "Pending",
+        "details": [
+            {
+                "type": "Some type",
+                "deductionCode": "401 K",
+                "checkDate": "01/15/2021",
+                "amount": 1200
+            },
+            {
+                "type": "Some other type",
+                "deductionCode": "Health basic plan",
+                "checkDate": "01/15/2021",
+                "amount": 500
+            },
+            {
+                "type": "Some dummy type",
+                "deductionCode": "Extra time",
+                "checkDate": "01/15/2021",
+                "amount": 320
+            }
+        ]
+    }
+]

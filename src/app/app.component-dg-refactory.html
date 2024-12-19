@@ -1,0 +1,125 @@
+<gsr-table 
+    [dataSource]="dataSource" 
+    [staticHeader]="staticHeader"
+    (pageRequest)="onPageRequest($event)"
+    [loading]="loading"
+    [resizableColumns]="true"
+    [stripedRows]="true"
+    [pageSize]="12"
+    [itemSize]="65"
+    *ngIf="dataSource"
+    [storeState]="true"
+    [stateKey]="'tableState'"
+    >
+    <gsr-dg-bulk-actions></gsr-dg-bulk-actions>
+  <gsr-dg-top-bar
+      [columns]="allColumns" 
+      addButtonText="Add" 
+      [toggleCompactRows]="true"
+      [searchbar]="true"
+      [exportButton]="true"
+      [columnSelection]="true"
+      [showSearchDropdown]="true"
+      (addButtonClick)="onAddClicked($event)">
+  </gsr-dg-top-bar>
+  
+  <ng-container dgColumnDef="select">
+      <th *dg-header-cell> </th>
+      <td *dg-column="let element;">
+          <gsr-checkbox [label]="element.name" *ngIf="element" [(ngModel)]="element.selected"></gsr-checkbox>
+      </td>
+  </ng-container>
+
+  <ng-container dgColumnDef="location" [sticky]="true">
+    <th *dg-header-cell>Location</th>
+    <td *dg-column="let element;">
+        <!-- <gsr-dropdown
+            [appendToBody]="true"
+            [showRemove]="false"
+            [hideHelperText]="true"
+            [hideLabel]="true"
+            [compactInput]="true"
+            [options]="locations" 
+            [(ngModel)]="element.location">
+        </gsr-dropdown> -->
+        {{ element.location }}
+    </td>
+  </ng-container>
+
+  <ng-container dgColumnDef="department">
+    <th *dg-header-cell>Department</th>
+    <td *dg-column="let element;">
+        <!-- <gsr-dropdown
+            [appendToBody]="true"
+            [showRemove]="false"
+            [hideHelperText]="true"
+            [hideLabel]="true"
+            [compactInput]="true"
+            [options]="departments" 
+            [(ngModel)]="element.department">
+        </gsr-dropdown> -->
+        {{ element.department }}
+    </td>
+  </ng-container>
+
+  <ng-container dgColumnDef="childs">
+    <th *dg-header-cell>Childs</th>
+    <td *dg-column="let element;">
+        <!-- <gsr-dropdown
+            [appendToBody]="true"
+            [showRemove]="false"
+            [hideHelperText]="true"
+            [hideLabel]="true"
+            [compactInput]="true"
+            [options]="childs" 
+            [(ngModel)]="element.childs">
+        </gsr-dropdown> -->
+        {{ element.childs }}
+    </td>
+  </ng-container>
+
+  <ng-container [dgColumnDef]="col.value" *ngFor="let col of columns" [type]="col.type || 'string'">
+      <th *dg-header-cell [dg-sort-col]="col.sorteable" >{{ col.name }}</th>
+      <td *dg-column="let element;">{{ element[col.value] }}</td>
+  </ng-container>
+
+  <ng-container dgColumnDef="expand">
+      <th *dg-header-cell> </th>
+      <td *dg-column="let element;">
+          <h2>Details of {{element.name}}</h2>
+          <div style="display: flex; width: 100%; flex-wrap: wrap; justify-content: space-between; max-width: 600px">
+              <div style="display: flex; flex-direction: column;">
+                  <label style="font-weight: bold;">Name</label>
+                  <span>{{ element.name }}</span>
+              </div>
+              <div style="display: flex; flex-direction: column">
+                  <label style="font-weight: bold;">Surname</label>
+                  <span>{{ element.surname }}</span>
+              </div>
+          </div>
+      </td>
+  </ng-container>
+
+  <!-- Add a new dgColumnDef named "actions" -->
+  <ng-container dgColumnDef="actions">
+      <th *dg-header-cell>Actions</th>
+      <td *dg-column="let element;">
+          <div style="display: flex; align-items: center; justify-content: center;">
+              <gsr-kebab-menu>
+                  <gsr-kebab-item icon="fas fa-edit">Edit</gsr-kebab-item>
+                  <gsr-kebab-item icon="fas fa-edit">test</gsr-kebab-item>
+                  <gsr-kebab-item icon="fas fa-edit">test</gsr-kebab-item>
+                  <gsr-kebab-item icon="fas fa-trash" iconColor="var(--error)">Delete</gsr-kebab-item>
+              </gsr-kebab-menu>
+          </div>
+      </td>
+  </ng-container> 
+  <!-- End of action columns -->
+
+  <!-- <gsr-dg-pagination [rowsPerPage]="50" [rowsPerPageOptions]="[50, 100, 200, 500, 1000]"></gsr-dg-pagination> -->
+  
+  <tr *dgHeader="allColumns"></tr>
+  <tr *dgRow="let row"></tr>
+</gsr-table>
+
+<hr>

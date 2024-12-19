@@ -1,0 +1,161 @@
+[
+    {
+        "payrunId": 1,
+        "payrunName": "Payrun 1",
+        "workPeriod": "01/01/2021 - 01/15/2021",
+        "paymentMethod": "Check",
+        "paymentId": 123456,
+        "achStatus": "Pending",
+        "details": [
+            {
+                "type": "Adjustment",
+                "earningCode": "SALARY",
+                "checkDate": "01/15/2021",
+                "locationCode": "Jax",
+                "hours": 80,
+                "minutes": 0,
+                "units": 0,
+                "payRate": 25,
+                "grossPay": 2000
+            }
+        ]
+    },
+    {
+        "payrunId": 2,
+        "payrunName": "Payrun 2",
+        "workPeriod": "01/16/2021 - 01/31/2021",
+        "paymentMethod": "Direct Deposit",
+        "paymentId": 123457,
+        "achStatus": "Completed",
+        "details": [
+            {
+                "type": "Regular",
+                "earningCode": "SALARY",
+                "checkDate": "01/31/2021",
+                "locationCode": "NYC",
+                "hours": 80,
+                "minutes": 0,
+                "units": 0,
+                "payRate": 30,
+                "grossPay": 2400
+            },
+            {
+                "type": "Overtime",
+                "earningCode": "OT",
+                "checkDate": "01/31/2021",
+                "locationCode": "NYC",
+                "hours": 5,
+                "minutes": 0,
+                "units": 0,
+                "payRate": 45,
+                "grossPay": 225
+            },
+            {
+                "type": "Adjustment",
+                "earningCode": "SALARY",
+                "checkDate": "01/31/2021",
+                "locationCode": "NYC",
+                "hours": 80,
+                "minutes": 0,
+                "units": 0,
+                "payRate": 30,
+                "grossPay": 2400
+            }
+        ]
+    },
+    {
+        "payrunId": 3,
+        "payrunName": "Payrun 3",
+        "workPeriod": "02/01/2021 - 02/15/2021",
+        "paymentMethod": "Check",
+        "paymentId": 123458,
+        "achStatus": "Pending",
+        "details": [
+            {
+                "type": "Overtime",
+                "earningCode": "OT",
+                "checkDate": "02/15/2021",
+                "locationCode": "LA",
+                "hours": 10,
+                "minutes": 0,
+                "units": 0,
+                "payRate": 45,
+                "grossPay": 450
+            },
+            {
+                "type": "Bonus",
+                "earningCode": "BONUS",
+                "checkDate": "01/31/2021",
+                "locationCode": "NYC",
+                "hours": 0,
+                "minutes": 0,
+                "units": 0,
+                "payRate": 0,
+                "grossPay": 500
+            }
+        ]
+    },
+    {
+        "payrunId": 4,
+        "payrunName": "Payrun 4",
+        "workPeriod": "02/16/2021 - 02/28/2021",
+        "paymentMethod": "Direct Deposit",
+        "paymentId": 123459,
+        "achStatus": "Completed",
+        "details": [
+            {
+                "type": "Bonus",
+                "earningCode": "BONUS",
+                "checkDate": "02/28/2021",
+                "locationCode": "SF",
+                "hours": 0,
+                "minutes": 0,
+                "units": 0,
+                "payRate": 0,
+                "grossPay": 1000
+            }
+        ]
+    },
+    {
+        "payrunId": 5,
+        "payrunName": "Payrun 5",
+        "workPeriod": "03/01/2021 - 03/15/2021",
+        "paymentMethod": "Check",
+        "paymentId": 123460,
+        "achStatus": "Pending",
+        "details": [
+            {
+                "type": "Regular",
+                "earningCode": "SALARY",
+                "checkDate": "03/15/2021",
+                "locationCode": "CHI",
+                "hours": 80,
+                "minutes": 0,
+                "units": 0,
+                "payRate": 28,
+                "grossPay": 2240
+            }
+        ]
+    },
+    {
+        "payrunId": 6,
+        "payrunName": "Payrun 6",
+        "workPeriod": "03/16/2021 - 03/31/2021",
+        "paymentMethod": "Direct Deposit",
+        "paymentId": 123461,
+        "achStatus": "Completed",
+        "details": [
+            {
+                "type": "Adjustment",
+                "earningCode": "SALARY",
+                "checkDate": "03/31/2021",
+                "locationCode": "MIA",
+                "hours": 80,
+                "minutes": 0,
+                "units": 0,
+                "payRate": 27,
+                "grossPay": 2160
+            }
+        ]
+    }
+]

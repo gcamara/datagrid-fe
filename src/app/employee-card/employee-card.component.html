@@ -1,0 +1,47 @@
+<div class="gs-container noPadding" [formGroup]="checkDatesForm">
+    <div class="gs-row noPadding">
+        <div class="gs-col-6 gs-row check-dates noMargin">
+            <gsr-calendar 
+                class="gs-col-3"
+                label="From check date"
+                placeholder=" "
+                [optionalText]="''"
+                formControlName="from">
+            </gsr-calendar>
+            <gsr-calendar
+                [optionalText]="''"
+                placeholder=" "
+                class="gs-col-3"
+                label="To check date"
+                formControlName="to">
+            </gsr-calendar>
+            <gsr-button (click)="run()">Run</gsr-button>
+        </div>
+    </div>
+</div>
+<div class="ee-cards gs-container">
+    <div class="gs-row">
+        <gsr-card *ngFor="let card of cards" type="normal">
+            <div class="gs-body-semi-bold text-center">{{ card.name }}</div>
+            <gs-loading [isLoading]="loadingCards">
+                <div class="gs-header-3 text-center">{{ card.value | currency: 'USD' : '$' : '1.2-2' }}</div>
+            </gs-loading>
+        </gsr-card>
+    </div>
+</div>
+<div class="gs-container">
+    <div class="gs-row">
+        <gsr-tab-group class="gs-col-12">
+            <gsr-tab *ngFor="let tab of tabs" [label]="tab.name" (onActive)="getData(tab)">
+                <app-ee-card-tab
+                    [attr.data-tab]="tab.name"
+                    [loading]="loading"
+                    [dataSource]="dataSource"
+                    [activeTab]="tab.name"
+                    [totalValues]="totalValues"
+                    [columns]="tab.columns">
+                </app-ee-card-tab>
+            </gsr-tab>
+        </gsr-tab-group>
+    </div>
+</div>

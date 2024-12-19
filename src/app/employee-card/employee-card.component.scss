@@ -1,0 +1,40 @@
+:host {
+    .check-dates {
+        align-items: center;
+
+        gsr-button {
+            max-height: 40px;
+        }
+    }
+
+    ::ng-deep gsr-text-input .input-container {
+        max-height: 40px;
+        box-sizing: border-box;
+    }
+
+    gsr-card {
+        width: 185px;
+        max-width: 185px;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .ee-cards .gs-row {
+        display: flex;
+        gap: 16px;
+    }
+
+    ::ng-deep tr:has(.test) {
+        display: contents;
+    }
+    
+    ::ng-deep tr.test, ::ng-deep tr:not(.test-child) {
+        background-color: var(--neutral-gray-4);
+    }
+
+    ::ng-deep gsr-dg-table-footer ::ng-deep tfoot td:not([colspan]) {
+        text-align: right;
+    }
+}

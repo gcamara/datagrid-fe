@@ -1,0 +1,36 @@
+[
+    {
+        "payrunId": 1,
+        "payrunName": "Payrun 1",
+        "workPeriod": "01/01/2021 - 01/15/2021",
+        "paymentMethod": "Check",
+        "paymentId": 123456,
+        "achStatus": "Pending",
+        "details": [
+            {
+                "taxName": "Employer Social Security Tax",
+                "code": "NY",
+                "checkDate": "01/15/2021",
+                "grossWages": 2000,
+                "taxableWages": 2000,
+                "amount": 1200
+            },
+            {
+                "taxName": "Employer Medicare Tax",
+                "code": "NY",
+                "checkDate": "01/15/2021",
+                "grossWages": 2000,
+                "taxableWages": 2000,
+                "amount": 500
+            },
+            {
+                "taxName": "Social Security",
+                "code": "NY",
+                "checkDate": "01/15/2021",
+                "grossWages": 2000,
+                "taxableWages": 2000,
+                "amount": 320
+            }
+        ]
+    }
+]

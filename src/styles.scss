@@ -1,3 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~gs-angular-controls/assets/global';
 @import '~@fortawesome/fontawesome-pro/css/all.min.css';
+
+body {
+    // height: calc(100vh - 16px);
+}
