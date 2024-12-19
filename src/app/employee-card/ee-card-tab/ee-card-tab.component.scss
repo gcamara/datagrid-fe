@@ -3,11 +3,11 @@
     min-width: 100%;
 
     ::ng-deep .dg-table-container {
-        max-height: 500px;
+        max-height: 450px;
     }
 
-    ::ng-deep th.gsr-dg-col {
-        padding: 8px 12px !important;
+    ::ng-deep tr {
+        height: 40px;
     }
 
     ::ng-deep .gsr-dg-col {

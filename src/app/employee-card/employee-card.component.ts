@@ -1,6 +1,7 @@
 import { CurrencyPipe } from '@angular/common';
-import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component, ViewChild } from '@angular/core';
+import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { GsrCalendarComponent } from 'gs-angular-controls';
 import { AppService } from '../app.service';
 
 @Component({
@@ -11,8 +12,8 @@ import { AppService } from '../app.service';
 export class EmployeeCardComponent {
 
   checkDatesForm = new FormGroup({
-    from: new FormControl(''),
-    to: new FormControl(''),
+    from: new FormControl('', this.createValidatorFor('from').bind(this)),
+    to: new FormControl('', this.createValidatorFor('to').bind(this)),
   });
 
   loadingCards = false;
@@ -40,7 +41,7 @@ export class EmployeeCardComponent {
         { name: 'Deduction total', value: 'deductionTotal', footer: this.toCurrency },
         { name: 'EE taxes', value: 'eeTaxes', footer: this.toCurrency },
         { name: 'Benefits total', value: 'benefitsTotal', footer: this.toCurrency },
-        { name: 'Actions', value: 'actions', footer: () => '' }
+        { name: 'Actions', value: 'actions', locked: true, footer: () => '' }
       ]
      },
     { 
@@ -98,15 +99,26 @@ export class EmployeeCardComponent {
 
   activeTab: any;
 
+  @ViewChild('fromDate', { static: true }) 
+  fromDate!: GsrCalendarComponent;
+
+  @ViewChild('toDate', { static: true }) 
+  toDate!: GsrCalendarComponent;
+
   constructor(private appService: AppService) {}
 
   toCurrency(value: number): string | null {
-    return new CurrencyPipe('en-US').transform(value, 'USD', 'symbol', '1.2-2');
+    return new CurrencyPipe('en-US').transform(value, 'USD', '$ ', '1.2-2');
   }
 
   ngOnInit(): void {
     this.loadCards();
     this.getData(this.tabs[0]);
+
+    const toDateControl = this.toDate.textInput.control;
+    const fromDateControl = this.fromDate.textInput.control;
+    toDateControl.setValidators(this.createValidatorFor('to'));
+    fromDateControl.setValidators(this.createValidatorFor('from'));
   }
 
   loadCards(): void {
@@ -155,7 +167,44 @@ export class EmployeeCardComponent {
     });
   }
 
+  createValidatorFor(field: 'from' | 'to', opposite?: AbstractControl): ValidatorFn {
+    return (control): ValidationErrors | null =>  {
+      opposite?.setErrors(null);
 
+      if (!control.value) {
+        return null;
+      }
+
+      if (field === 'from') {
+        const toDateString = this.checkDatesForm.controls.to.value;
+        if (!toDateString) {
+          return null;
+        }
+        
+        const date = new Date(control.value);
+        const toDate = new Date(toDateString);
+
+        if (date > toDate) {
+          return { fromGreaterThanTo: true };
+        }
+      } else {
+        const fromDateString = this.checkDatesForm.controls.from.value;
+        if (!fromDateString) {
+          return null;
+        }
+
+        const date = new Date(control.value);
+        const fromDate = new Date(fromDateString);
+        
+        if (date < fromDate) {
+          return { toLessThanFrom: true };
+        }
+      }
+
+      return null;
+    }
+  }
+  
   run(): void {
     console.log('run');
   }

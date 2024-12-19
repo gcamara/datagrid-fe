@@ -2,20 +2,20 @@
     [dataSource]="dataSource"
     [virtualization]="false"
     [loading]="loading"
-    [itemSize]="60"
+    [compactRows]="true"
     [staticHeader]="true">
 
     <gsr-dg-top-bar
         [columns]="columns"
-        addButtonText="Add"
+        addButtonText=""
         [toggleCompactRows]="false"
         [searchbar]="true"
         [predictiveSearch]="true"
+        [columnSelection]="activeTab === 'Overview'"
         (predictiveSearchValue)="onPredictiveSearch($event)"
         [standalonePredictiveSearch]="searchOptions"
         [predictiveDebounce]="400"
         [exportButton]="true"
-        [columnSelection]="true"
         [showSearchDropdown]="true"
         exportLabel="Export"
         exportLabelIcon=""
@@ -28,22 +28,25 @@
             <td class="gsr-dg-col" *ngIf="!element.details?.length && col !== 'actions'">{{ element[col.value] }}</td>
             <tr class="test gsr-text-truncation gsr-dg-row" *ngIf="element.details?.length && !i">
                 <td class="gsr-dg-col" colspan="9">
-                    <a [href]="element.payrunId" class="gs-text-blue">{{ element.payrunName }}</a> | Work period {{ element.workPeriod }} | Payment method: {{ element.paymentMethod }} {{element.paymentId}}
+                    <a [href]="element.payrunId" class="gs-text-blue fakeLink gs-small-semi-bold">{{ element.payrunName }}</a> | Work period {{ element.workPeriod }} | Payment method: {{ element.paymentMethod }} {{element.paymentId}}
                 </td>
             </tr>
             <ng-container *ngIf="element.details?.length && !i">
                 <tr class="test-child gsr-dg-row" *ngFor="let child of element.details">
-                    <td class="
-                        gsr-dg-col
-                        gsr-dg-col-{{col.value.toLowerCase()}}
-                        gsr-dg-col-{{activeTab.toLowerCase()}}-{{col.value.toLowerCase()}}"
-                        [class.text-center]="col.value === 'actions'"
-                        *ngFor="let col of columns">
+                    <ng-container *ngFor="let col of columns">
+                        <td class="
+                            gsr-dg-col
+                            gsr-dg-col-{{col.value.toLowerCase()}}
+                            gsr-dg-col-{{activeTab.toLowerCase()}}-{{col.value.toLowerCase()}}"
+                            [class.text-center]="col.value === 'actions'"
+                            *ngIf="col.checked"
+                            >
 
-                        <a *ngIf="col.value === 'actions'" href="#" class="fakeLink gs-text-blue gs-body-semi-bold">View</a>
-                        <!-- If the column has a footer, use the same formatter -->
-                        {{ col.footer ? col.footer(child[col.value]) : child[col.value] }} 
-                    </td>
+                            <a *ngIf="col.value === 'actions'" href="#" class="fakeLink gs-text-blue gs-small-semi-bold">View</a>
+                            <!-- If the column has a footer, use the same formatter -->
+                            {{ col.footer ? col.footer(child[col.value]) : child[col.value] }} 
+                        </td>
+                    </ng-container>
                 </tr>
             </ng-container>
         </ng-container>

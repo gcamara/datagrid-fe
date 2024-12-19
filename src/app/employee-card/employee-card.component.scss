@@ -4,6 +4,7 @@
 
         gsr-button {
             max-height: 40px;
+            margin-top: 4px;
         }
     }
 
@@ -12,13 +13,30 @@
         box-sizing: border-box;
     }
 
+    gsr-tab-group ::ng-deep .content {
+        padding: 0;
+        padding-top: 24px;
+    }
+
     gsr-card {
-        width: 185px;
-        max-width: 185px;
+        width: calc(16.66% - 16px);
+        /* max-width: 185px; */
+        max-height: 85px;
+        height: 85px;
+        box-sizing: border-box;
+
+        gs-loading:has(.bar) {
+            transform: scale(0.8);
+            margin-top: -10px;
+        }
     }
 
     .text-center {
         text-align: center;
+    }
+
+    .ee-cards {
+        margin-top: -37px;
     }
 
     .ee-cards .gs-row {
@@ -36,5 +54,10 @@
 
     ::ng-deep gsr-dg-table-footer ::ng-deep tfoot td:not([colspan]) {
         text-align: right;
+    }
+
+    ::ng-deep gsr-dg-table-footer ::ng-deep tfoot td {
+        font-size: 14px;
+        font-weight: 600;
     }
 }

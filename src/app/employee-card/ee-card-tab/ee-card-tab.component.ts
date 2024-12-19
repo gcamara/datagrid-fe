@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { DgTableFooterComponent, GsrTableDirective } from 'gs-angular-controls';
 import { PredictiveSearchOptions } from 'gs-angular-controls/lib/components/gsr-data-grid/components/dg-top-bar/dg-top-bar.component';
 import { DropdownButtonOption } from 'gs-angular-controls/lib/components/gsr-dropdown-button/gsr-dropdown-button.model';
@@ -10,7 +10,7 @@ import { EmployeeCardTab } from './ee-card-tab.const';
   templateUrl: './ee-card-tab.component.html',
   styleUrls: ['./ee-card-tab.component.scss']
 })
-export class EeCardTabComponent implements OnInit {
+export class EeCardTabComponent {
 
   @Input()
   active: boolean = false;
@@ -47,11 +47,6 @@ export class EeCardTabComponent implements OnInit {
   ]
   };
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
   @Input()
   totalValues = new Map<string, any>();
 
@@ -64,6 +59,13 @@ export class EeCardTabComponent implements OnInit {
   exportOptions: DropdownButtonOption[] = [
     { label: 'Export', value: 'pdf', onClick: (data: any) => this.exportFn('xlsx', data) },
   ]
+
+  ngAfterViewInit(): void {
+    const actionColumn: any = this.table.topBar.columnOptions.find(option => option.label === 'Actions');
+    if (actionColumn) {
+      actionColumn['locked'] = true;
+    }
+  }
 
   exportFn(type: string, data: any): void {
     const footer = this.footer.nativeElement.querySelector('tfoot');
@@ -133,6 +135,10 @@ export class EeCardTabComponent implements OnInit {
     sheet['!cols'] = [
       { wpx: 700 }
     ];
+  }
+
+  onDisplayedColumnsChange(columns: any[]): void {
+    console.log('columns', columns);
   }
 
   onPredictiveSearch(search: any): void {
