@@ -25,7 +25,7 @@
     <ng-container [dgColumnDef]="col.value" *ngFor="let col of columns; let i = index" [searchFn]="searchFn(col.value)">
         <th *dg-header-cell class="gsr-dg-header-{{activeTab.toLowerCase()}}">{{ col.name }}</th>
         <ng-container *dg-column="let element;">
-            <td class="gsr-dg-col" *ngIf="!element.details?.length">{{ element[col.value] }}</td>
+            <td class="gsr-dg-col" *ngIf="!element.details?.length && col !== 'actions'">{{ element[col.value] }}</td>
             <tr class="test gsr-text-truncation gsr-dg-row" *ngIf="element.details?.length && !i">
                 <td class="gsr-dg-col" colspan="9">
                     <a [href]="element.payrunId" class="gs-text-blue">{{ element.payrunName }}</a> | Work period {{ element.workPeriod }} | Payment method: {{ element.paymentMethod }} {{element.paymentId}}
@@ -34,10 +34,13 @@
             <ng-container *ngIf="element.details?.length && !i">
                 <tr class="test-child gsr-dg-row" *ngFor="let child of element.details">
                     <td class="
-                        gsr-dg-col 
+                        gsr-dg-col
                         gsr-dg-col-{{col.value.toLowerCase()}}
-                        gsr-dg-col-{{activeTab.toLowerCase()}}-{{col.value.toLowerCase()}}
-                        " *ngFor="let col of columns">
+                        gsr-dg-col-{{activeTab.toLowerCase()}}-{{col.value.toLowerCase()}}"
+                        [class.text-center]="col.value === 'actions'"
+                        *ngFor="let col of columns">
+
+                        <a *ngIf="col.value === 'actions'" href="#" class="fakeLink gs-text-blue gs-body-semi-bold">View</a>
                         <!-- If the column has a footer, use the same formatter -->
                         {{ col.footer ? col.footer(child[col.value]) : child[col.value] }} 
                     </td>

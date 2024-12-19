@@ -2,6 +2,14 @@
     display: block;
     min-width: 100%;
 
+    ::ng-deep .dg-table-container {
+        max-height: 500px;
+    }
+
+    ::ng-deep th.gsr-dg-col {
+        padding: 8px 12px !important;
+    }
+
     ::ng-deep .gsr-dg-col {
         &-netpay, 
         &-grosspay, 
@@ -48,10 +56,64 @@
                 max-width: 135px;
             }
         }
+
+        &-earnings {
+            &-type {
+                width: 112px;
+            }
+            &-earningcode {
+                width: 220px;
+            }
+            &-checkdate {
+                width: 138px;
+            }
+            &-locationcode {
+                width: 150px;
+            }
+            &-hours, &-units {
+                width: 60px;
+            }
+            &-minutes {
+                width: 74px;
+            }
+            &-payrate {
+                width: 130px;
+            }
+            &-grosspay {
+                width: 250px;
+            }
+        }
+
+        &-deductions {
+            &-deductioncode {
+                width: 370px;
+            }
+
+            &-type {
+                width: 203px;
+            }
+
+            &-checkdate {
+                width: 200px;
+            }
+
+            &-amount {
+                width: 422px;
+                text-align: right;
+            }
+        }
     }
 
     ::ng-deep .search-bar-container .glyph-container {
         height: 38px !important
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .fakeLink {
+        text-decoration: none;
     }
 
     &[data-tab="Overview"] ::ng-deep {
@@ -87,4 +149,26 @@
             }
         }
     }
+
+    // &[data-tab="Deductions"], &[data-tab="Benefits"], &[data-tab="Taxes"] {
+        ::ng-deep {
+            .gsr-dg-col-header-amount, 
+            .gsr-dg-col-header-taxablewages, 
+            .gsr-dg-col-header-grosswages,
+            .gsr-dg-col-header-hours,
+            .gsr-dg-col-header-minutes,
+            .gsr-dg-col-header-units,
+            .gsr-dg-col-header-grosspay,
+            .gsr-dg-col-header-netpay,
+            .gsr-dg-col-header-deductiontotal,
+            .gsr-dg-col-header-eetaxes,
+            .gsr-dg-col-header-benefitstotal
+            {
+                div th {
+                    width: 100%;
+                    text-align: right;
+                }
+            }
+        }
+    // }
 }
